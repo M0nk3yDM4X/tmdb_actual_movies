@@ -9,7 +9,7 @@ import Modal from "./components/Modal.js";
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [myMovieList, setMyMovieList] = useState([]);
-  const [movieClicked, setMovieClicked] = useState();
+  const [movieClicked, setMovieClicked] = useState({});
   const [page, setPage] = useState(1);
   const [dataPages, setDataPages] = useState();
   const [showModal, setShowModal] = useState(false);
@@ -31,37 +31,16 @@ const App = () => {
 
   const handleScroll = e => {
     let element = e.target;
-    // console.log("ceci est la scrollheight", element.scrollHeight);
-    // console.log("ceci est le scrollTop >>>", element.scrollTop);
-    // console.log(element.scrollHeight - element.scrollTop);
     if (element.scrollHeight - element.scrollTop === element.clientHeight) {
       if (page < dataPages) {
         setPage(page + 1);
       }
     }
-
-    // else if (element.scrollTop === 0) {
-    //   if (page > 1) {
-    //     setPage(page - 1);
-    //   }
-    // }
   };
 
   useEffect(() => {
     fetchData();
   }, [page]);
-
-  // useEffect(() => {
-  //   console.log(myMovieList);
-  // }, [myMovieList]);
-
-  // useEffect(() => {
-  //   console.log(showModal);
-  // }, [showModal]);
-
-  // useEffect(() => {
-  //   console.log(myProductsList);
-  // }, [myProductsList]);
 
   return (
     <div className="App">
@@ -82,6 +61,15 @@ const App = () => {
               <span>Films du moment</span>
             </div>
             <div onScroll={handleScroll} className="movieListContainer">
+              <div
+                style={{
+                  display: "flex",
+                  width: "100%",
+                  justifyContent: "flex-end"
+                }}
+              >
+                <button style={{ position: "fixed" }}>Retourner au top</button>
+              </div>
               {myMovieList.map((element, index) => {
                 return (
                   <>
