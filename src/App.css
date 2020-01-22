@@ -4,24 +4,76 @@
   align-items: center;
 }
 
-.moviesList {
+.header {
+  display: flex;
+  align-items: center;
+  height: 20vh;
+  width: 100%;
+  background-color: #071c24;
+}
+
+.logo {
+  margin-left: 20px;
+  height: 18vh;
+  width: 18vh;
+  object-fit: contain;
+}
+
+/* .moviesList {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   width: 100%;
+} */
+
+.nowPlaying {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+  height: 80vh;
+  background-color: lightgrey;
+}
+
+.nowPlayingTitleContainer {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0px;
+  padding: 15px 0px;
+  width: 100%;
+}
+
+.nowPlayingTitleContainer > span {
+  font-weight: 300;
+  font-size: 50px;
+}
+
+.movieListContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 80%;
+  height: 60vh;
+  overflow: scroll;
+  scroll-behavior: smooth;
+  border: 2px solid black;
+}
+
+::-webkit-scrollbar {
+  display: none;
 }
 
 .movieCard {
   display: flex;
-  height: 300px;
-  width: 600px;
-  background-color: lightblue;
-  margin: 0 30px 35px 0;
-  padding: 8px;
+  height: 200px;
+  width: 300px;
+  background-color: #071c24;
+  margin: 30px 15px;
   border-radius: 5px;
   cursor: pointer;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
+  overflow: hidden;
 }
 
 .movieCard:hover {
@@ -54,7 +106,33 @@
 
 .movieTitle {
   font-family: "Nunito";
-  font-weight: 400;
-  font-size: 28px;
+  font-weight: 200;
+  font-size: 20px;
   color: white;
+}
+
+.backgroundModal {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  position: fixed;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.modalCard {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  align-items: center;
+  background-color: #fdf5e6;
+  height: 400px;
+  width: 60%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
