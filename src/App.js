@@ -5,6 +5,7 @@ import axios from "axios";
 import Logo from "./images/logo.png";
 
 import Modal from "./components/Modal.js";
+import MovieList from "./containers/MovieList.js";
 
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -31,6 +32,7 @@ const App = () => {
 
   const handleScroll = e => {
     let element = e.target;
+
     if (element.scrollHeight - element.scrollTop === element.clientHeight) {
       if (page < dataPages) {
         setPage(page + 1);
@@ -58,49 +60,15 @@ const App = () => {
           </header>
           <section className="nowPlaying">
             <div className="nowPlayingTitleContainer">
-              <span>Films du moment</span>
+              <span>Actuellement au cinéma</span>
             </div>
-            <div onScroll={handleScroll} className="movieListContainer">
-              <div
-                style={{
-                  display: "flex",
-                  width: "100%",
-                  justifyContent: "flex-end"
-                }}
-              >
-                <button style={{ position: "fixed" }}>Retourner au top</button>
-              </div>
-              {myMovieList.map((element, index) => {
-                return (
-                  <>
-                    {element !== null ? (
-                      <div
-                        key={index}
-                        className="movieCard"
-                        onClick={() => {
-                          setShowModal(!showModal);
-                          setMovieClicked(element);
-                        }}
-                      >
-                        <div className="moviePosterContainer">
-                          <img
-                            className="moviePoster"
-                            alt="moviePoster"
-                            src={
-                              "https://image.tmdb.org/t/p/w370_and_h556_bestv2/" +
-                              element.poster_path
-                            }
-                          />
-                        </div>
-                        <div className="movieTitleContainer">
-                          <span className="movieTitle">{element.title}</span>
-                        </div>
-                      </div>
-                    ) : null}
-                  </>
-                );
-              })}
-            </div>
+            <MovieList
+              handleScroll={handleScroll}
+              myMovieList={myMovieList}
+              showModal={showModal}
+              setShowModal={setShowModal}
+              setMovieClicked={setMovieClicked}
+            />
           </section>
         </>
       )}

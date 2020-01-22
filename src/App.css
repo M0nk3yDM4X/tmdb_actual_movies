@@ -23,7 +23,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* justify-content: center; */
   height: 80vh;
   background-color: lightgrey;
 }
@@ -70,19 +69,23 @@
 }
 
 .movieCard:hover {
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.5);
+  box-shadow: 0 16px 24px 0 rgba(0, 0, 0, 0.5);
 }
 
 .moviePosterContainer {
   height: inherit;
-  /* background-color: yellow; */
 }
 
 .moviePoster {
   display: flex;
   height: inherit;
   width: auto;
-  /* object-fit: contain; */
+}
+.noMoviePoster {
+  display: flex;
+  height: inherit;
+  width: 133.08px;
+  object-fit: contain;
 }
 
 .movieTitleContainer {
@@ -94,7 +97,6 @@
   height: inherit;
   align-items: center;
   text-align: center;
-  /* background: red; */
 }
 
 .movieTitle {
@@ -142,6 +144,33 @@
   padding: 0 10px;
 }
 
+.modalCardCross {
+  display: flex;
+  justify-content: flex-end;
+  width: inherit;
+  padding: 5px 0;
+}
+
+.modalCardCrossContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #071c24;
+  width: 25px;
+  height: 25px;
+  border-radius: 100%;
+  cursor: pointer;
+}
+
+.modalCardCrossContainer > span {
+  font-size: 24px;
+  color: #fdf5e6;
+}
+.modalCardCrossContainer > span:hover {
+  font-size: 24px;
+  color: red;
+}
+
 .modalCardMovieTitle {
   display: flex;
   justify-content: center;
@@ -172,7 +201,7 @@
   justify-content: center;
   align-items: center;
   text-align: justify;
-  line-height: 1.5;
+  line-height: 1.4;
 }
 .overviewContainer > span {
   font-size: 32px;
