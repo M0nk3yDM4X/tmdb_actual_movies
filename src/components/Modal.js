@@ -13,12 +13,18 @@ const Modal = ({ showModal, setShowModal, movieClicked }) => {
   const voteCount = movieClicked.vote_count;
   const rating = movieClicked.vote_average;
 
+  // closeModal function, allow user ot change value of showModal state
+  // When modal is showed value is equal to true, so at the cross click
+  // modal will be closed and state will be equal to false
+
   const closeModal = () => {
     setShowModal(!showModal);
   };
 
   return (
     <>
+      {/* if showModal state value is equal to true, then modal is gonna be showed on user's screen */}
+      {/* So when a user will click on a movieCard, modal will show up with details about the movie that has been clicked */}
       {showModal === true && (
         <>
           <div className="backgroundModal">
@@ -37,6 +43,7 @@ const Modal = ({ showModal, setShowModal, movieClicked }) => {
               </div>
               <div className="modalCardMovieDetails">
                 <div className="modalCardCross">
+                  {/* Calling closeModal function */}
                   <div onClick={closeModal} className="modalCardCrossContainer">
                     <span>X</span>
                   </div>

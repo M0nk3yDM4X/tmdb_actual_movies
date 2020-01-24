@@ -10,6 +10,8 @@ const MovieCard = ({
   setShowModal,
   setMovieClicked
 }) => {
+  // cardClicked function which change state showModal by the reverse of the actual value, so it's gonna be "true"
+  // It also change movieClicked state, by setting is new value to "element", which is in fact all details about the movie that has been clicked
   const cardClicked = () => {
     setShowModal(!showModal);
     setMovieClicked(element);
