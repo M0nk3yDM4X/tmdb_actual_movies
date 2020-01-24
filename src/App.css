@@ -4,6 +4,8 @@
   align-items: center;
 }
 
+/* ##### HEADER ##### */
+
 .header {
   display: flex;
   align-items: center;
@@ -13,11 +15,13 @@
 }
 
 .logo {
-  margin-left: 20px;
+  margin-left: 30px;
   height: 18vh;
   width: 18vh;
   object-fit: contain;
 }
+
+/* ##### PAGE ##### */
 
 .nowPlaying {
   display: flex;
@@ -27,185 +31,19 @@
   background-color: lightgrey;
 }
 
+/* ##### TITLE ##### */
+
 .nowPlayingTitleContainer {
   display: flex;
   justify-content: center;
+  align-items: center;
   margin: 20px 0px;
-  padding: 15px 0px;
-  width: 100%;
+  padding: 15px 15px;
 }
 
-.nowPlayingTitleContainer > span {
+.nowPlayingTitleContainer > h1 {
   font-weight: 300;
   font-size: 50px;
-}
-
-.movieListContainer {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  width: 85%;
-  height: 62vh;
-  overflow: scroll;
-  scroll-behavior: smooth;
-  border: 2px solid black;
-}
-
-::-webkit-scrollbar {
-  display: none;
-}
-
-.movieCard {
-  display: flex;
-  height: 200px;
-  width: 300px;
-  background-color: #071c24;
-  margin: 30px 15px;
-  border-radius: 5px;
-  cursor: pointer;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  transition: 0.3s;
-  overflow: hidden;
-}
-
-.movieCard:hover {
-  box-shadow: 0 16px 24px 0 rgba(0, 0, 0, 0.5);
-}
-
-.moviePosterContainer {
-  height: inherit;
-}
-
-.moviePoster {
-  display: flex;
-  height: inherit;
-  width: auto;
-}
-.noMoviePoster {
-  display: flex;
-  height: inherit;
-  width: 133.08px;
-  object-fit: contain;
-}
-
-.movieTitleContainer {
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  justify-content: center;
-  padding: 0px 0px 0px 8px;
-  height: inherit;
-  align-items: center;
-  text-align: center;
-}
-
-.movieTitle {
-  font-family: "Nunito";
-  font-weight: 200;
-  font-size: 20px;
-  color: white;
-}
-
-.backgroundModal {
-  height: 100%;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  top: 0;
-  left: 0;
-  position: fixed;
-  background: rgba(0, 0, 0, 0.6);
-}
-
-.modalCard {
-  display: flex;
-  overflow: hidden;
-  align-items: center;
-  background-color: #fdf5e6;
-  height: 500px;
-  width: 50%;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.modalCardPoster {
-  display: flex;
-  align-items: center;
-  height: inherit;
-}
-.modalCardMovieDetails {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  height: inherit;
-  padding: 0 10px;
-}
-
-.modalCardCross {
-  display: flex;
-  justify-content: flex-end;
-  width: inherit;
-  padding: 5px 0;
-}
-
-.modalCardCrossContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #071c24;
-  width: 25px;
-  height: 25px;
-  border-radius: 100%;
-  cursor: pointer;
-}
-
-.modalCardCrossContainer > span {
-  font-size: 24px;
-  color: #fdf5e6;
-}
-.modalCardCrossContainer > span:hover {
-  font-size: 24px;
-  color: red;
-}
-
-.modalCardMovieTitle {
-  display: flex;
-  justify-content: center;
-  padding: 10px 0;
-  width: inherit;
-}
-
-.modalCardMovieTitle > span {
-  margin-right: 10px;
-  font-size: 32px;
-}
-
-.modalCardMovieRelease {
-  display: flex;
-  padding: 10px 0;
-  width: inherit;
-}
-.modalCardMovieRelease > span {
-  font-size: 18px;
-  margin-right: 10px;
-  text-decoration: underline;
-}
-
-.overviewContainer {
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: justify;
-  line-height: 1.4;
-}
-.overviewContainer > span {
-  font-size: 32px;
-}
-.overviewContainer > p {
-  font-size: 18px;
+  margin: 0;
+  color: #071c24;
 }

@@ -5,7 +5,7 @@ import axios from "axios";
 import Logo from "./images/logo.png";
 
 import Modal from "./components/Modal.js";
-import MovieList from "./containers/MovieList.js";
+import MovieList from "./components/MovieList.js";
 
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -17,7 +17,9 @@ const App = () => {
   const [top, setTop] = useState(0);
 
   let link =
-    "https://api.themoviedb.org/3/movie/now_playing?api_key=f6102bdcf50d58b04b50380aa65a1652&language=fr&page=" +
+    "https://api.themoviedb.org/3/movie/now_playing?api_key=" +
+    process.env.REACT_APP_API_KEY_TMDB +
+    "&language=fr&page=" +
     page;
 
   const fetchData = async () => {
@@ -63,7 +65,7 @@ const App = () => {
           </header>
           <section className="nowPlaying">
             <div className="nowPlayingTitleContainer">
-              <span>Actuellement au cinéma</span>
+              <h1>actuellement au cinéma</h1>
             </div>
             <MovieList
               handleScroll={handleScroll}

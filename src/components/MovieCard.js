@@ -1,4 +1,5 @@
 import React from "react";
+import "./MovieCard.css";
 
 import noImage from "../images/no-image.png";
 
@@ -9,29 +10,29 @@ const MovieCard = ({
   setShowModal,
   setMovieClicked
 }) => {
+  const cardClicked = () => {
+    setShowModal(!showModal);
+    setMovieClicked(element);
+  };
+
+  const poster = element.poster_path;
+  const title = element.title;
+
   return (
-    <div
-      key={index}
-      className="movieCard"
-      onClick={() => {
-        setShowModal(!showModal);
-        setMovieClicked(element);
-      }}
-    >
+    <div key={index} className="movieCard" onClick={cardClicked}>
       <div className="moviePosterContainer">
         <img
-          className={element.poster_path ? "moviePoster" : "noMoviePoster"}
+          className={poster ? "moviePoster" : "noMoviePoster"}
           alt="moviePoster"
           src={
-            element.poster_path
-              ? "https://image.tmdb.org/t/p/w370_and_h556_bestv2/" +
-                element.poster_path
+            poster
+              ? "https://image.tmdb.org/t/p/w370_and_h556_bestv2/" + poster
               : noImage
           }
         />
       </div>
       <div className="movieTitleContainer">
-        <span className="movieTitle">{element.title}</span>
+        <span className="movieTitle">{title}</span>
       </div>
     </div>
   );

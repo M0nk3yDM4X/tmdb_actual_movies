@@ -1,4 +1,5 @@
 import React from "react";
+import "./Modal.css";
 import "moment/locale/fr";
 
 import noImage from "../images/no-image.png";
@@ -6,6 +7,15 @@ import noImage from "../images/no-image.png";
 const Modal = ({ showModal, setShowModal, movieClicked }) => {
   const localDate = new Date(movieClicked.release_date);
   const date = localDate.toLocaleDateString();
+
+  const poster = movieClicked.poster_path;
+  const title = movieClicked.title;
+  const voteCount = movieClicked.vote_count;
+  const rating = movieClicked.vote_average;
+
+  const closeModal = () => {
+    setShowModal(!showModal);
+  };
 
   return (
     <>
@@ -15,44 +25,39 @@ const Modal = ({ showModal, setShowModal, movieClicked }) => {
             <div className="modalCard">
               <div className="modalCardPoster">
                 <img
-                  className={movieClicked.poster_path ? "moviePoster" : null}
+                  className={poster ? "moviePoster" : null}
                   alt="movie_poster"
                   src={
-                    movieClicked.poster_path
+                    poster
                       ? "https://image.tmdb.org/t/p/w370_and_h556_bestv2/" +
-                        movieClicked.poster_path
+                        poster
                       : noImage
                   }
                 />
               </div>
               <div className="modalCardMovieDetails">
                 <div className="modalCardCross">
-                  <div
-                    onClick={() => {
-                      setShowModal(!showModal);
-                    }}
-                    className="modalCardCrossContainer"
-                  >
+                  <div onClick={closeModal} className="modalCardCrossContainer">
                     <span>X</span>
                   </div>
                 </div>
                 <div className="modalCardMovieTitle">
-                  <span>{movieClicked.title}</span>
+                  <span>{title}</span>
                 </div>
-                <div className="modalCardMovieRelease">
-                  <span>Date de sortie :</span>
+                <div className="modalCardMovieReleaseAndRating">
+                  <span className="modalCardDetail">Date de sortie :</span>
                   <span>{date}</span>
                 </div>
-                <div className="modalCardMovieRelease">
-                  <span>Note :</span>
-                  {movieClicked.vote_count === 0 ? (
+                <div className="modalCardMovieReleaseAndRating">
+                  <span className="modalCardDetail">Note :</span>
+                  {voteCount === 0 ? (
                     <span>Aucune note n'a été attribuée pour ce film</span>
                   ) : (
-                    <span>{movieClicked.vote_average}</span>
+                    <span>{rating} / 10</span>
                   )}
                 </div>
                 <div className="overviewContainer">
-                  <span>Description: </span>
+                  <span className="modalCardDetail">Description: </span>
                   {movieClicked.overview ? (
                     <p>{movieClicked.overview}</p>
                   ) : (
