@@ -4,8 +4,8 @@ import axios from "axios";
 
 import Logo from "./images/logo.png";
 
-import Modal from "./components/Modal.js";
-import MovieList from "./components/MovieList.js";
+import Modal from "./components/Modal/Modal.js";
+import MovieList from "./components/MovieList/MovieList.js";
 
 const App = () => {
   // Setting a state loading, with default value equal to true

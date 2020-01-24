@@ -2,7 +2,7 @@ import React from "react";
 import "./Modal.css";
 import "moment/locale/fr";
 
-import noImage from "../images/no-image.png";
+import noImage from "../../images/no-image.png";
 
 const Modal = ({ showModal, setShowModal, movieClicked }) => {
   const localDate = new Date(movieClicked.release_date);

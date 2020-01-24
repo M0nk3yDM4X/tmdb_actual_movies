@@ -1,7 +1,7 @@
 import React from "react";
 import "./MovieCard.css";
 
-import noImage from "../images/no-image.png";
+import noImage from "../../images/no-image.png";
 
 const MovieCard = ({
   index,

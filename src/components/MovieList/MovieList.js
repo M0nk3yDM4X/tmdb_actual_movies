@@ -1,6 +1,6 @@
 import React from "react";
 import "./MovieList.css";
-import MovieCard from "./MovieCard.js";
+import MovieCard from "../MovieCard/MovieCard.js";
 
 import { KeyboardArrowUp } from "@material-ui/icons";
 
