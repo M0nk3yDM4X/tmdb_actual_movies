@@ -73,6 +73,7 @@ const App = () => {
   // useEffect will call data at the first load of the page, and everytimes than state page increase,
   // In other words, everytimes user is scrolling down at the bottom of the window, state page will increase,
   // and by this action, data will be loaded again.
+  //
 
   useEffect(() => {
     fetchData();
