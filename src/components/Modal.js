@@ -16,6 +16,7 @@ const Modal = ({ showModal, setShowModal, movieClicked }) => {
               <div className="modalCardPoster">
                 <img
                   className={movieClicked.poster_path ? "moviePoster" : null}
+                  alt="movie_poster"
                   src={
                     movieClicked.poster_path
                       ? "https://image.tmdb.org/t/p/w370_and_h556_bestv2/" +

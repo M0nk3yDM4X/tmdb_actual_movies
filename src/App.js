@@ -12,8 +12,9 @@ const App = () => {
   const [myMovieList, setMyMovieList] = useState([]);
   const [movieClicked, setMovieClicked] = useState({});
   const [page, setPage] = useState(1);
-  const [dataPages, setDataPages] = useState();
+  const [dataPages, setDataPages] = useState(0);
   const [showModal, setShowModal] = useState(false);
+  const [top, setTop] = useState(0);
 
   let link =
     "https://api.themoviedb.org/3/movie/now_playing?api_key=f6102bdcf50d58b04b50380aa65a1652&language=fr&page=" +
@@ -32,6 +33,8 @@ const App = () => {
 
   const handleScroll = e => {
     let element = e.target;
+
+    setTop(element.scrollTop);
 
     if (element.scrollHeight - element.scrollTop === element.clientHeight) {
       if (page < dataPages) {
@@ -56,7 +59,7 @@ const App = () => {
             movieClicked={movieClicked}
           />
           <header className="header">
-            <img src={Logo} className="logo" />
+            <img src={Logo} alt="logo" className="logo" />
           </header>
           <section className="nowPlaying">
             <div className="nowPlayingTitleContainer">
@@ -68,6 +71,7 @@ const App = () => {
               showModal={showModal}
               setShowModal={setShowModal}
               setMovieClicked={setMovieClicked}
+              top={top}
             />
           </section>
         </>
